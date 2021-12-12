@@ -33,4 +33,6 @@ body {
   position: absolute;
   top: 100px;
   left: 600px;
+  border-style: solid;
+  border-color: yellow;
 }

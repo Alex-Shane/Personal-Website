@@ -16,6 +16,12 @@ body {
   left: 300px;
 }
 
+.paragraph
+{
+  font-family: "Lucida Console", "Courier New", monospace;
+  color: blue;
+}
+
 
 
 .spidey

@@ -1,0 +1,30 @@
+body {
+  background-color: red;
+}
+
+.first-container
+{
+    position: absolute;
+    top: 100px;
+    left: 0px;
+}
+
+.second-container
+{
+  position: absolute;
+  top: 0px;
+  left: 300px;
+}
+
+
+
+.spidey
+{
+  background-image: url("NFT.jpeg");
+  background-repeat: no-repeat;
+  height: 500px;
+  width: 300px;
+  position: absolute;
+  top: 100px;
+  left: 600px;
+}

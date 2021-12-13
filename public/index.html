@@ -25,5 +25,29 @@ Albanique patres atque altae moenia Romae.
 <div class="spidey">
   NFT Lord Generator
 </div>
+<div class="simon">
+  <button id="greenButton">
+    Green
+  </button>
+  <button id="blueButton">
+    Blue
+  </button>
+  <button id="redButton">
+    Red
+  </button>
+  <button id="yellowButton">
+    Yellow
+  </button>
+</div>
   </body>
+  <script>
+      document.getElementById("greenButton").addEventListener("click", function(){
+        console.log("green button clicked");
+        document.getElementById("greenButton").classList.add("litG");
+      });
+
+      /*document.getElementById("blueButton").classList.add("litB");
+      document.getElementById("redButton").classList.add("litR");
+      document.getElementById("yellowButton").classList.add("litY");*/
+  </script>
 </html>

@@ -45,13 +45,121 @@ Albanique patres atque altae moenia Romae.
 
   </body>
   <script>
-      document.getElementById("greenButton").addEventListener("click", function(){
-        console.log("green button clicked");
-        document.getElementById("greenButton").classList.add("litG");
-      });
+    var simonArray;
+    var currentIndex;
+    var correctNum;
+    document.getElementById("startButton").addEventListener("click", playGame());
+      function playGame()
+      {
+        simonArray = [];
+        document.getElementById("greenButton").addEventListener("click", buttonClicked);
+        document.getElementById("blueButton").addEventListener("click", buttonClicked);
+        document.getElementById("redButton").addEventListener("click", buttonClicked);
+        document.getElementById("yellowButton").addEventListener("click", buttonClicked);
+        playRound(1);
+      }
+// this.id
+      function playRound(roundNumber)
+      {
+        currentIndex = 0;
+        simonArray.push(Math.floor((Math.random() * 4)));
+        for (let k = 0; k < simonArray.length; k++)
+        {
+          setTimeout(() => {flashColor(simonArray[k])}, 600);
+        }
+        correctNum = simonArray[0];
+      }
 
-      /*document.getElementById("blueButton").classList.add("litB");
-      document.getElementById("redButton").classList.add("litR");
-      document.getElementById("yellowButton").classList.add("litY");*/
+      function flashColor(num)
+      {
+        if (num == 0)
+        {
+          document.getElementById("greenButton").classList.add("litG");
+          setTimeout(() => {document.getElementById("greenButton").classList.remove("litG")}, 1200);
+        }
+        if (num == 1)
+        {
+          document.getElementById("blueButton").classList.add("litB");
+          setTimeout(() => {document.getElementById("blueButton").classList.remove("litB")}, 1200);
+        }
+        if (num == 2)
+        {
+          document.getElementById("redButton").classList.add("litR");
+          setTimeout(() => {document.getElementById("redButton").classList.remove("litR")}, 1200);
+        }
+        if (num == 3)
+        {
+          document.getElementById("yellowButton").classList.add("litY");
+          setTimeout(() => {document.getElementById("yellowButton").classList.remove("litY")}, 1200);
+        }
+      }
+      function buttonClicked()
+      {
+        if (this.id === "greenButton")
+        {
+          if (correctNum == 0)
+          {
+            flashColor(0);
+            if (currentIndex+1 == simonArray.length)
+            {
+              playRound(simonArray.length+1);
+            }
+            else
+            {
+              currentIndex++;
+              correctNum = simonArray[currentIndex];
+            }
+          }
+        }
+        if (this.id === "blueButton")
+        {
+          if (correctNum == 1)
+          {
+            flashColor(1);
+            if (currentIndex+1 == simonArray.length)
+            {
+              playRound(simonArray.length+1);
+            }
+            else
+            {
+              currentIndex++;
+              correctNum = simonArray[currentIndex];
+            }
+          }
+        }
+        if (this.id === "redButton")
+        {
+          if (correctNum == 2)
+          {
+            flashColor(2);
+            if (currentIndex+1 == simonArray.length)
+            {
+              playRound(simonArray.length+1);
+            }
+            else
+            {
+              currentIndex++;
+              correctNum = simonArray[currentIndex];
+            }
+          }
+        }
+        if (this.id === "yellowButton")
+        {
+          if (correctNum == 3)
+          {
+            flashColor(3);
+            if (currentIndex+1 == simonArray.length)
+            {
+              playRound(simonArray.length+1);
+            }
+            else
+            {
+              currentIndex++;
+              correctNum = simonArray[currentIndex];
+            }
+          }
+        }
+        alert ("You lost. Please try again");
+    }
   </script>
 </html>

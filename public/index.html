@@ -48,8 +48,8 @@ Albanique patres atque altae moenia Romae.
     var simonArray;
     var currentIndex;
     var correctNum;
-    document.getElementById("startButton").addEventListener("click", playGame());
-      function playGame()
+    document.getElementById("startButton").addEventListener("click", init);
+      function init()
       {
         simonArray = [];
         document.getElementById("greenButton").addEventListener("click", buttonClicked);
@@ -63,9 +63,11 @@ Albanique patres atque altae moenia Romae.
       {
         currentIndex = 0;
         simonArray.push(Math.floor((Math.random() * 4)));
+        console.log(simonArray)
         for (let k = 0; k < simonArray.length; k++)
         {
-          setTimeout(() => {flashColor(simonArray[k])}, 600);
+          var time = 600*k;
+          setTimeout(() => {flashColor(simonArray[k])},time);
         }
         correctNum = simonArray[0];
       }
@@ -93,16 +95,41 @@ Albanique patres atque altae moenia Romae.
           setTimeout(() => {document.getElementById("yellowButton").classList.remove("litY")}, 1200);
         }
       }
+
+      function flash(num)
+      {
+        if (num == 0)
+        {
+          document.getElementById("greenButton").classList.add("litG");
+          setTimeout(() => {document.getElementById("greenButton").classList.remove("litG")}, 300);
+        }
+        if (num == 1)
+        {
+          document.getElementById("blueButton").classList.add("litB");
+          setTimeout(() => {document.getElementById("blueButton").classList.remove("litB")}, 300);
+        }
+        if (num == 2)
+        {
+          document.getElementById("redButton").classList.add("litR");
+          setTimeout(() => {document.getElementById("redButton").classList.remove("litR")}, 300);
+        }
+        if (num == 3)
+        {
+          document.getElementById("yellowButton").classList.add("litY");
+          setTimeout(() => {document.getElementById("yellowButton").classList.remove("litY")}, 300);
+        }
+      }
+
       function buttonClicked()
       {
         if (this.id === "greenButton")
         {
           if (correctNum == 0)
           {
-            flashColor(0);
+            flash(0);
             if (currentIndex+1 == simonArray.length)
             {
-              playRound(simonArray.length+1);
+              setTimeout(() => {playRound(simonArray.length+1)}, 1000);
             }
             else
             {
@@ -110,15 +137,19 @@ Albanique patres atque altae moenia Romae.
               correctNum = simonArray[currentIndex];
             }
           }
+          else
+          {
+            alert ("You lost. Please try again");
+          }
         }
-        if (this.id === "blueButton")
+        else if (this.id === "blueButton")
         {
           if (correctNum == 1)
           {
-            flashColor(1);
+            flash(1);
             if (currentIndex+1 == simonArray.length)
             {
-              playRound(simonArray.length+1);
+              setTimeout(() => {playRound(simonArray.length+1)}, 1000);
             }
             else
             {
@@ -126,15 +157,19 @@ Albanique patres atque altae moenia Romae.
               correctNum = simonArray[currentIndex];
             }
           }
+          else
+          {
+            alert ("You lost. Please try again");
+          }
         }
-        if (this.id === "redButton")
+        else if (this.id === "redButton")
         {
           if (correctNum == 2)
           {
-            flashColor(2);
+            flash(2);
             if (currentIndex+1 == simonArray.length)
             {
-              playRound(simonArray.length+1);
+              setTimeout(() => {playRound(simonArray.length+1)}, 1000);
             }
             else
             {
@@ -142,15 +177,19 @@ Albanique patres atque altae moenia Romae.
               correctNum = simonArray[currentIndex];
             }
           }
+          else
+          {
+            alert ("You lost. Please try again");
+          }
         }
-        if (this.id === "yellowButton")
+        else if (this.id === "yellowButton")
         {
           if (correctNum == 3)
           {
-            flashColor(3);
+            flash(3);
             if (currentIndex+1 == simonArray.length)
             {
-              playRound(simonArray.length+1);
+              setTimeout(() => {playRound(simonArray.length+1)}, 1000);
             }
             else
             {
@@ -158,8 +197,11 @@ Albanique patres atque altae moenia Romae.
               correctNum = simonArray[currentIndex];
             }
           }
+          else
+          {
+            alert ("You lost. Please try again");
+          }
         }
-        alert ("You lost. Please try again");
     }
   </script>
 </html>

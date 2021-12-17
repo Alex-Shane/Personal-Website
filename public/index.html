@@ -48,10 +48,12 @@ Albanique patres atque altae moenia Romae.
     var simonArray;
     var currentIndex;
     var correctNum;
+    var currentLevel;
     document.getElementById("startButton").addEventListener("click", init);
       function init()
       {
         simonArray = [];
+        currentLevel = 0;
         document.getElementById("greenButton").addEventListener("click", buttonClicked);
         document.getElementById("blueButton").addEventListener("click", buttonClicked);
         document.getElementById("redButton").addEventListener("click", buttonClicked);
@@ -62,6 +64,7 @@ Albanique patres atque altae moenia Romae.
       function playRound(roundNumber)
       {
         currentIndex = 0;
+        currentLevel++;
         simonArray.push(Math.floor((Math.random() * 4)));
         console.log(simonArray)
         for (let k = 0; k < simonArray.length; k++)
@@ -139,7 +142,7 @@ Albanique patres atque altae moenia Romae.
           }
           else
           {
-            alert ("You lost. Please try again");
+            alert ("You lost at level " + currentLevel + ". Please try again");
           }
         }
         else if (this.id === "blueButton")
@@ -159,7 +162,7 @@ Albanique patres atque altae moenia Romae.
           }
           else
           {
-            alert ("You lost. Please try again");
+            alert ("You lost at level " + currentLevel + ". Please try again");
           }
         }
         else if (this.id === "redButton")
@@ -179,7 +182,7 @@ Albanique patres atque altae moenia Romae.
           }
           else
           {
-            alert ("You lost. Please try again");
+            alert ("You lost at level " + currentLevel + ". Please try again");
           }
         }
         else if (this.id === "yellowButton")
@@ -199,7 +202,7 @@ Albanique patres atque altae moenia Romae.
           }
           else
           {
-            alert ("You lost. Please try again");
+            alert ("You lost at level " + currentLevel + ". Please try again");
           }
         }
     }

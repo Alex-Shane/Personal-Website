@@ -82,3 +82,13 @@ button{
   top: 300px;
   left: -120px
 }
+
+.score
+{
+  width:100px;
+  height:25px;
+  position:absolute;
+  top: 370px;
+  left: -135px;
+  color: white;
+}

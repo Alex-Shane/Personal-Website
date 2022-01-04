@@ -23,6 +23,9 @@ Albanique patres atque altae moenia Romae.
     <button class ="start" id="startButton">
       Start
     </button>
+    <div class="score" id ="highScore">
+      High Score:
+    </div>
   </div>
 </div>
 <div class="spidey">
@@ -49,6 +52,7 @@ Albanique patres atque altae moenia Romae.
     var currentIndex;
     var correctNum;
     var currentLevel;
+    document.getElementById("highScore").innerHTML="High Score: " + window.localStorage.myHighScore;
     document.getElementById("startButton").addEventListener("click", init);
       function init()
       {
@@ -143,6 +147,11 @@ Albanique patres atque altae moenia Romae.
           else
           {
             alert ("You lost at level " + currentLevel + ". Please try again");
+            if (currentLevel>window.localStorage.myHighScore)
+            {
+                window.localStorage.myHighScore = currentLevel;
+                document.getElementById("highScore").innerHTML= "High Score: " + currentLevel;
+            }
           }
         }
         else if (this.id === "blueButton")
@@ -163,6 +172,11 @@ Albanique patres atque altae moenia Romae.
           else
           {
             alert ("You lost at level " + currentLevel + ". Please try again");
+            if (currentLevel>window.localStorage.myHighScore)
+            {
+                window.localStorage.myHighScore = currentLevel;
+                document.getElementById("highScore").innerHTML= "High Score: " + currentLevel;
+            }
           }
         }
         else if (this.id === "redButton")
@@ -183,6 +197,11 @@ Albanique patres atque altae moenia Romae.
           else
           {
             alert ("You lost at level " + currentLevel + ". Please try again");
+            if (currentLevel>window.localStorage.myHighScore)
+            {
+                window.localStorage.myHighScore = currentLevel;
+                document.getElementById("highScore").innerHTML= "High Score: " + currentLevel;
+            }
           }
         }
         else if (this.id === "yellowButton")
@@ -203,6 +222,11 @@ Albanique patres atque altae moenia Romae.
           else
           {
             alert ("You lost at level " + currentLevel + ". Please try again");
+            if (currentLevel>window.localStorage.myHighScore)
+            {
+                window.localStorage.myHighScore = currentLevel;
+                document.getElementById("highScore").innerHTML= "High Score: " + currentLevel;
+            }
           }
         }
     }

@@ -82,7 +82,7 @@ flash: function(num){
 },
 
 buttonClicked: function(){
-       if (this.id === "greenButton")
+       if (id === "greenButton")
        {
          if (this.correctNum == 0)
          {
@@ -107,7 +107,7 @@ buttonClicked: function(){
            }
          }
        }
-       else if (this.id === "blueButton")
+       else if (id === "blueButton")
        {
          if (this.correctNum == 1)
          {
@@ -132,7 +132,7 @@ buttonClicked: function(){
            }
          }
        }
-       else if (this.id === "redButton")
+       else if (id === "redButton")
        {
          if (this.correctNum == 2)
          {
@@ -157,7 +157,7 @@ buttonClicked: function(){
            }
          }
        }
-       else if (this.id === "yellowButton")
+       else if (id === "yellowButton")
        {
          if (this.correctNum == 3)
          {

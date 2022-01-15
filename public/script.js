@@ -81,109 +81,111 @@ flash: function(num){
        }
 },
 
+
 buttonClicked: function(){
-       if (id === "greenButton")
+       if (this.id=="greenButton")
        {
-         if (this.correctNum == 0)
+         if (app.correctNum == 0)
          {
-           this.flash(0);
-           if (this.currentIndex+1 == this.simonArray.length)
+           app.flash(0);
+           if (app.currentIndex+1 == app.simonArray.length)
            {
-             setTimeout(() => {this.playRound(this.simonArray.length+1)}, 1000);
+             setTimeout(() => {app.playRound(app.simonArray.length+1)}, 1000);
            }
            else
            {
-             this.currentIndex++;
-             this.correctNum = this.simonArray[this.currentIndex];
+             app.currentIndex++;
+             app.correctNum = app.simonArray[app.currentIndex];
            }
          }
          else
          {
-           alert ("You lost at level " + this.currentLevel + ". Please try again");
-           if (this.currentLevel>window.localStorage.myHighScore)
+           alert ("You lost at level " + app.currentLevel + ". Please try again");
+           if (app.currentLevel>window.localStorage.myHighScore)
            {
-               window.localStorage.myHighScore = this.currentLevel;
-               document.getElementById("highScore").innerHTML= "High Score: " + this.currentLevel;
+               window.localStorage.myHighScore = app.currentLevel;
+               document.getElementById("highScore").innerHTML= "High Score: " + app.currentLevel;
            }
          }
        }
-       else if (id === "blueButton")
+       else if (this.id=="blueButton")
        {
-         if (this.correctNum == 1)
+         if (app.correctNum == 1)
          {
-           this.flash(1);
-           if (this.currentIndex+1 == this.simonArray.length)
+           app.flash(1);
+           if (app.currentIndex+1 == app.simonArray.length)
            {
-             setTimeout(() => {this.playRound(this.simonArray.length+1)}, 1000);
+             setTimeout(() => {app.playRound(app.simonArray.length+1)}, 1000);
            }
            else
            {
-             this.currentIndex++;
-             this.correctNum = this.simonArray[this.currentIndex];
+             app.currentIndex++;
+             app.correctNum = app.simonArray[app.currentIndex];
            }
          }
          else
          {
-           alert ("You lost at level " + this.currentLevel + ". Please try again");
-           if (this.currentLevel>window.localStorage.myHighScore)
+           alert ("You lost at level " + app.currentLevel + ". Please try again");
+           if (app.currentLevel>window.localStorage.myHighScore)
            {
-               window.localStorage.myHighScore = this.currentLevel;
-               document.getElementById("highScore").innerHTML= "High Score: " + this.currentLevel;
+               window.localStorage.myHighScore = app.currentLevel;
+               document.getElementById("highScore").innerHTML= "High Score: " + app.currentLevel;
            }
          }
        }
-       else if (id === "redButton")
+       else if (this.id=="redButton")
        {
-         if (this.correctNum == 2)
+         if (app.correctNum == 2)
          {
-           this.flash(2);
-           if (this.currentIndex+1 == this.simonArray.length)
+           app.flash(2);
+           if (app.currentIndex+1 == app.simonArray.length)
            {
-             setTimeout(() => {this.playRound(app.simonArray.length+1)}, 1000);
+             setTimeout(() => {app.playRound(app.simonArray.length+1)}, 1000);
            }
            else
            {
-             this.currentIndex++;
-             this.correctNum = this.simonArray[this.currentIndex];
+             app.currentIndex++;
+             app.correctNum = app.simonArray[app.currentIndex];
            }
          }
          else
          {
-           alert ("You lost at level " + this.currentLevel + ". Please try again");
-           if (this.currentLevel>window.localStorage.myHighScore)
+           alert ("You lost at level " + app.currentLevel + ". Please try again");
+           if (app.currentLevel>window.localStorage.myHighScore)
            {
-               window.localStorage.myHighScore = this.currentLevel;
-               document.getElementById("highScore").innerHTML= "High Score: " + this.currentLevel;
+               window.localStorage.myHighScore = app.currentLevel;
+               document.getElementById("highScore").innerHTML= "High Score: " + app.currentLevel;
            }
          }
        }
-       else if (id === "yellowButton")
+       else if (this.id=="yellowButton")
        {
-         if (this.correctNum == 3)
+         if (app.correctNum == 3)
          {
-           this.flash(3);
-           if (this.currentIndex+1 == this.simonArray.length)
+           app.flash(3);
+           if (app.currentIndex+1 == app.simonArray.length)
            {
-             setTimeout(() => {this.playRound(this.simonArray.length+1)}, 1000);
+             setTimeout(() => {app.playRound(app.simonArray.length+1)}, 1000);
            }
            else
            {
-             this.currentIndex++;
-             this.correctNum = this.simonArray[this.currentIndex];
+             app.currentIndex++;
+             app.correctNum = app.simonArray[app.currentIndex];
            }
          }
          else
          {
-           alert ("You lost at level " + this.currentLevel + ". Please try again");
-           if (this.currentLevel>window.localStorage.myHighScore)
+           alert ("You lost at level " + app.currentLevel + ". Please try again");
+           if (app.currentLevel>window.localStorage.myHighScore)
            {
-               window.localStorage.myHighScore = this.currentLevel;
-               document.getElementById("highScore").innerHTML= "High Score: " + this.currentLevel;
+               window.localStorage.myHighScore = app.currentLevel;
+               document.getElementById("highScore").innerHTML= "High Score: " + app.currentLevel;
            }
          }
        }
    }
 };
+
 
 document.getElementById("highScore").innerHTML="High Score: " + window.localStorage.myHighScore;
 document.getElementById("startButton").addEventListener("click", function(){app.init();});

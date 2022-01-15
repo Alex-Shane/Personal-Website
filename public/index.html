@@ -1,234 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel = "stylesheet" href = "./style.css">
-  </head>
-  <body>
-    Hello this is my website
+
+<head>
+  <link rel="stylesheet" href="./style.css">
+</head>
+let Student={
+  array:0,
+
+  getGrade:[9,0
+}
+<body>
+  Hello this is my website
   <div class="paragraph">
     <p>
       ARMA virumque cano, Troiae qui primus ab oris
-Italiam fato profugus Laviniaque venit
-litora-multum ille et terris iactatus et alto
-vi superum, saevae memorem Junonis ob iram,
-multa quoque et bello passus, dum conderet urbem,
-inferretque deos Latio-genus unde Latinum,
-Albanique patres atque altae moenia Romae.
-</p>
-</div>
-<div class ="first-container">
-  This is my first divider
-  <div class ="second-container">
-    This is my second divider
-    <button class ="start" id="startButton">
-      Start
-    </button>
-    <div class="score" id ="highScore">
-      High Score:
+      Italiam fato profugus Laviniaque venit
+      litora-multum ille et terris iactatus et alto
+      vi superum, saevae memorem Junonis ob iram,
+      multa quoque et bello passus, dum conderet urbem,
+      inferretque deos Latio-genus unde Latinum,
+      Albanique patres atque altae moenia Romae.
+    </p>
+  </div>
+  <div class="first-container">
+    This is my first divider
+    <div class="second-container">
+      This is my second divider
+      <button class="start" id="startButton">
+        Start
+      </button>
+      <div class="score" id="highScore">
+        High Score:
+      </div>
     </div>
   </div>
-</div>
-<div class="spidey">
-  NFT Lord Generator
-</div>
-<div class="simon">
-  <button id="greenButton">
-    Green
-  </button>
-  <button id="blueButton">
-    Blue
-  </button>
-  <button id="redButton">
-    Red
-  </button>
-  <button id="yellowButton">
-    Yellow
-  </button>
-</div>
-
-  </body>
-  <script>
-    var simonArray;
-    var currentIndex;
-    var correctNum;
-    var currentLevel;
-    document.getElementById("highScore").innerHTML="High Score: " + window.localStorage.myHighScore;
-    document.getElementById("startButton").addEventListener("click", init);
-      function init()
-      {
-        simonArray = [];
-        currentLevel = 0;
-        document.getElementById("greenButton").addEventListener("click", buttonClicked);
-        document.getElementById("blueButton").addEventListener("click", buttonClicked);
-        document.getElementById("redButton").addEventListener("click", buttonClicked);
-        document.getElementById("yellowButton").addEventListener("click", buttonClicked);
-        playRound(1);
-      }
-// this.id
-      function playRound(roundNumber)
-      {
-        currentIndex = 0;
-        currentLevel++;
-        simonArray.push(Math.floor((Math.random() * 4)));
-        console.log(simonArray)
-        for (let k = 0; k < simonArray.length; k++)
-        {
-          var time = 600*k;
-          setTimeout(() => {flashColor(simonArray[k])},time);
-        }
-        correctNum = simonArray[0];
-      }
-
-      function flashColor(num)
-      {
-        if (num == 0)
-        {
-          document.getElementById("greenButton").classList.add("litG");
-          setTimeout(() => {document.getElementById("greenButton").classList.remove("litG")}, 1200);
-        }
-        if (num == 1)
-        {
-          document.getElementById("blueButton").classList.add("litB");
-          setTimeout(() => {document.getElementById("blueButton").classList.remove("litB")}, 1200);
-        }
-        if (num == 2)
-        {
-          document.getElementById("redButton").classList.add("litR");
-          setTimeout(() => {document.getElementById("redButton").classList.remove("litR")}, 1200);
-        }
-        if (num == 3)
-        {
-          document.getElementById("yellowButton").classList.add("litY");
-          setTimeout(() => {document.getElementById("yellowButton").classList.remove("litY")}, 1200);
-        }
-      }
-
-      function flash(num)
-      {
-        if (num == 0)
-        {
-          document.getElementById("greenButton").classList.add("litG");
-          setTimeout(() => {document.getElementById("greenButton").classList.remove("litG")}, 300);
-        }
-        if (num == 1)
-        {
-          document.getElementById("blueButton").classList.add("litB");
-          setTimeout(() => {document.getElementById("blueButton").classList.remove("litB")}, 300);
-        }
-        if (num == 2)
-        {
-          document.getElementById("redButton").classList.add("litR");
-          setTimeout(() => {document.getElementById("redButton").classList.remove("litR")}, 300);
-        }
-        if (num == 3)
-        {
-          document.getElementById("yellowButton").classList.add("litY");
-          setTimeout(() => {document.getElementById("yellowButton").classList.remove("litY")}, 300);
-        }
-      }
-
-      function buttonClicked()
-      {
-        if (this.id === "greenButton")
-        {
-          if (correctNum == 0)
-          {
-            flash(0);
-            if (currentIndex+1 == simonArray.length)
-            {
-              setTimeout(() => {playRound(simonArray.length+1)}, 1000);
-            }
-            else
-            {
-              currentIndex++;
-              correctNum = simonArray[currentIndex];
-            }
-          }
-          else
-          {
-            alert ("You lost at level " + currentLevel + ". Please try again");
-            if (currentLevel>window.localStorage.myHighScore)
-            {
-                window.localStorage.myHighScore = currentLevel;
-                document.getElementById("highScore").innerHTML= "High Score: " + currentLevel;
-            }
-          }
-        }
-        else if (this.id === "blueButton")
-        {
-          if (correctNum == 1)
-          {
-            flash(1);
-            if (currentIndex+1 == simonArray.length)
-            {
-              setTimeout(() => {playRound(simonArray.length+1)}, 1000);
-            }
-            else
-            {
-              currentIndex++;
-              correctNum = simonArray[currentIndex];
-            }
-          }
-          else
-          {
-            alert ("You lost at level " + currentLevel + ". Please try again");
-            if (currentLevel>window.localStorage.myHighScore)
-            {
-                window.localStorage.myHighScore = currentLevel;
-                document.getElementById("highScore").innerHTML= "High Score: " + currentLevel;
-            }
-          }
-        }
-        else if (this.id === "redButton")
-        {
-          if (correctNum == 2)
-          {
-            flash(2);
-            if (currentIndex+1 == simonArray.length)
-            {
-              setTimeout(() => {playRound(simonArray.length+1)}, 1000);
-            }
-            else
-            {
-              currentIndex++;
-              correctNum = simonArray[currentIndex];
-            }
-          }
-          else
-          {
-            alert ("You lost at level " + currentLevel + ". Please try again");
-            if (currentLevel>window.localStorage.myHighScore)
-            {
-                window.localStorage.myHighScore = currentLevel;
-                document.getElementById("highScore").innerHTML= "High Score: " + currentLevel;
-            }
-          }
-        }
-        else if (this.id === "yellowButton")
-        {
-          if (correctNum == 3)
-          {
-            flash(3);
-            if (currentIndex+1 == simonArray.length)
-            {
-              setTimeout(() => {playRound(simonArray.length+1)}, 1000);
-            }
-            else
-            {
-              currentIndex++;
-              correctNum = simonArray[currentIndex];
-            }
-          }
-          else
-          {
-            alert ("You lost at level " + currentLevel + ". Please try again");
-            if (currentLevel>window.localStorage.myHighScore)
-            {
-                window.localStorage.myHighScore = currentLevel;
-                document.getElementById("highScore").innerHTML= "High Score: " + currentLevel;
-            }
-          }
-        }
-    }
-  </script>
+  <div class="spidey">
+    NFT Lord Generator
+  </div>
+  <div class="simon">
+    <button id="greenButton">
+      Green
+    </button>
+    <button id="blueButton">
+      Blue
+    </button>
+    <button id="redButton">
+      Red
+    </button>
+    <button id="yellowButton">
+      Yellow
+    </button>
+  </div>
+</body>
+  <script src="script.js"></script>
 </html>

@@ -230,6 +230,12 @@ Albanique patres atque altae moenia Romae.
           }
         }
     }
+
+    let triangle = 0;
+    let ellipse = 0;
+    let triangleSpeed = 5;
+    let ellipseSpeed = 0.1;
+
     function initializeAnimation() {
       window.requestAnimationFrame(draw);
     }
@@ -237,10 +243,10 @@ Albanique patres atque altae moenia Romae.
     function drawArt(ctx) {
       // Draw triangle
       ctx.beginPath();
-      ctx.moveTo(0, -110);
-      ctx.lineTo(136, 110);
-      ctx.lineTo(-136, 110);
-      ctx.lineTo(0, -110);
+      ctx.moveTo(0, -110 + triangle);
+      ctx.lineTo(136, 110 + triangle);
+      ctx.lineTo(-136, 110 + triangle);
+      ctx.lineTo(0, -110 + triangle);
       ctx.stroke();
 
       ctx.beginPath();
@@ -252,8 +258,16 @@ Albanique patres atque altae moenia Romae.
       ctx.stroke();
 
       ctx.beginPath();
-      ctx.ellipse(50, 250, 20, 80, 0, Math.PI * 2, false);
+      ctx.ellipse(50, 250, 20, 80, 0 + ellipse, Math.PI * 2, false);
       ctx.stroke();
+    }
+
+    function moveArt(ctx) {
+    	triangle += triangleSpeed;
+      ellipse += ellipseSpeed;
+      if (triangle < 0 || triangle > 50) {
+    	  triangleSpeed = triangleSpeed * -1;
+      }
     }
 
     function draw() {
@@ -268,13 +282,14 @@ Albanique patres atque altae moenia Romae.
 
       ctx.save();
       ctx.translate(450, 250);
+      moveArt(ctx);
       drawArt(ctx);
       ctx.restore();
-
 
       // Call draw when the website is ready
       window.requestAnimationFrame(draw);
     }
+
     initializeAnimation();
   </script>
 </html>
